@@ -20,13 +20,17 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->date('dob');
-            $table->enum('gender', ['Male', 'Female']);
-            $table->string('annual_income');
+            $table->date('dob')->nullable();
+            $table->enum('gender', ['Male', 'Female'])->nullable();
+            $table->string('annual_income')->nullable();
             $table->string('occupation')->nullable();
             $table->string('family_type')->nullable();
-            $table->enum('manglik', ['Yes', 'No']);
-            $table->rememberToken();
+            $table->enum('manglik', ['Yes', 'No'])->nullable();
+            $table->string('partner_annual_income')->nullable();
+            $table->string('partner_occupation')->nullable();
+            $table->string('partner_family_type')->nullable();
+            $table->enum('partner_manglik', ['Yes', 'No','Both'])->nullable();
+            $table->rememberToken()->nullable();
             $table->timestamps();
         });
     }
